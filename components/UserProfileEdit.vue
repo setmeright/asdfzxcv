@@ -1,10 +1,17 @@
 <script>
+import { validationRules } from "@/utils";
+
 export default {
   name: "UserProfileEdit",
   data() {
     const { name, email, img } = this.$store.state.user.profile;
 
-    return { name, email, img };
+    return { name, email, img, isValidForm: true };
+  },
+  computed: {
+    rules() {
+      return validationRules;
+    },
   },
   methods: {
     submit() {
@@ -17,10 +24,12 @@ export default {
 </script>
 
 <template>
-  <v-form class="edit-area" @submit.prevent="submit">
+  <v-form v-model="isValidForm" class="edit-area" @submit.prevent="submit">
     <div class="d-flex">
       <h2 class="mb-5 mr-5">Edit user information</h2>
-      <v-btn type="input" depressed color="success">Save</v-btn>
+      <v-btn :disabled="!isValidForm" type="input" depressed color="success"
+        >Save</v-btn
+      >
     </div>
     <figure class="profile-picture mb-5">
       <img :src="img" alt="user picture" />
@@ -31,8 +40,16 @@ export default {
       prepend-icon="mdi-camera"
       label="Avatar"
     ></v-file-input> -->
-    <v-text-field v-model="name" label="Name"></v-text-field>
-    <v-text-field v-model="email" label="Email"></v-text-field>
+    <v-text-field
+      v-model="name"
+      :rules="[rules.required]"
+      label="Name"
+    ></v-text-field>
+    <v-text-field
+      v-model="email"
+      :rules="[rules.required, rules.email]"
+      label="Email"
+    ></v-text-field>
   </v-form>
 </template>
 
