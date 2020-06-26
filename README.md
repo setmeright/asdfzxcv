@@ -1,6 +1,10 @@
 # user-profile
 
-initial user credentials: `admin password`
+live app:
+https://asdfzxcv.arsm.vercel.app/
+
+initial user credentials: 
+`admin password`
 
 ## Build Setup
 
