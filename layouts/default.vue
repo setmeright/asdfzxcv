@@ -1,16 +1,19 @@
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "DefaultLayout",
-  computed: mapState("user", ["account"]),
+  computed: {
+    ...mapState("user", ["account"]),
+    ...mapGetters("user", ["isLoggedIn"]),
+  },
   methods: mapActions("user", ["logout"]),
 };
 </script>
 
 <template>
   <v-app>
-    <v-app-bar app flat>
+    <v-app-bar v-if="isLoggedIn" app flat>
       <v-toolbar-title>Dashboard</v-toolbar-title>
 
       <v-spacer></v-spacer>

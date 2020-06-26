@@ -26,7 +26,7 @@ export default {
 <template>
   <v-row justify="center" align="center">
     <v-form v-model="formValid" @submit.prevent="login({ account, password })">
-      <v-card class="pa-4" min-width="400">
+      <v-card outlined class="pa-4" min-width="400">
         <v-text-field
           v-model="account"
           :rules="generalRules"
