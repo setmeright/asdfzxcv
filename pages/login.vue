@@ -1,6 +1,7 @@
 <script>
 export default {
   name: "LoginPage",
+  middleware: "no-auth",
   data() {
     return {
       formValid: false,

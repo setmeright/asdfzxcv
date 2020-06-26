@@ -8,6 +8,7 @@ export default {
     UserProfile,
     UserProfileEdit,
   },
+  middleware: "auth",
   data() {
     return {
       isEditing: !!this.$route.query.edit,
