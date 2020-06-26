@@ -18,6 +18,9 @@ export default {
       console.log("submit login");
     },
   },
+  head: {
+    title: "Login",
+  },
 };
 </script>
 
