@@ -1,5 +1,9 @@
-export default function ({ store, redirect }) {
+export default async function ({ store, redirect }) {
   if (!store.getters["user/isLoggedIn"]) {
-    redirect("/login");
+    await store.dispatch("user/fetchUser");
+
+    if (!store.getters["user/isLoggedIn"]) {
+      redirect("/login");
+    }
   }
 }

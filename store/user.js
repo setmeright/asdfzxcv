@@ -7,6 +7,7 @@ function initialState() {
       email: "",
       img: "",
     },
+    fetchError: "",
   };
 }
 
@@ -25,6 +26,9 @@ export const mutations = {
     state.account = account;
     state.profile = profile;
   },
+  setError(state, error) {
+    state.fetchError = error;
+  },
 };
 
 export const actions = {
@@ -40,9 +44,10 @@ export const actions = {
     try {
       const userData = await this.$api.login(payload);
       commit("setUser", userData);
+      commit("setError", "");
       this.$router.push("/profile");
     } catch (error) {
-      console.error(error);
+      commit("setError", error);
     }
   },
   async updateProfile({ commit }, payload) {

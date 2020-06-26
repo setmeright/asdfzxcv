@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "LoginPage",
@@ -12,6 +12,16 @@ export default {
     };
   },
   computed: {
+    ...mapState("user", { loginError: "fetchError" }),
+    hasError: {
+      get() {
+        return !!this.$store.state.user.fetchError;
+      },
+      set() {
+        this.$store.commit("user/setError", "");
+      },
+    },
+
     generalRules() {
       return [v => !!v || "Field is required"];
     },
@@ -26,6 +36,14 @@ export default {
 <template>
   <v-row justify="center" align="center">
     <v-form v-model="formValid" @submit.prevent="login({ account, password })">
+      <v-alert
+        v-if="hasError"
+        v-model="hasError"
+        text
+        color="red"
+        dismissible
+        >{{ loginError }}</v-alert
+      >
       <v-card outlined class="pa-4" min-width="400">
         <v-text-field
           v-model="account"
