@@ -19,10 +19,10 @@ export default {
       <img :src="profile.img" alt="user picture" />
     </figure>
     <p class="ma-0">
-      Name: <strong>{{ profile.name }}</strong>
+      Name: <strong>{{ profile.name || "Not specified" }}</strong>
     </p>
     <p class="ma-0">
-      Email: <strong>{{ profile.email }}</strong>
+      Email: <strong>{{ profile.email || "Not specified" }}</strong>
     </p>
   </div>
 </template>

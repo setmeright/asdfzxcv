@@ -45,6 +45,14 @@ export const actions = {
       console.error(error);
     }
   },
+  async updateProfile({ commit }, payload) {
+    try {
+      await this.$api.updateProfile(payload);
+      commit("updateProfile", payload);
+    } catch (error) {
+      console.error(error);
+    }
+  },
   async logout({ commit }) {
     try {
       await this.$api.logout();
@@ -54,5 +62,4 @@ export const actions = {
       console.error(error);
     }
   },
-  updateProfile(_ctx, _payload) {},
 };

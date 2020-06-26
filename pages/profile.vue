@@ -42,8 +42,6 @@ export default {
 .profile-picture {
   width: 100%;
   max-width: 250px;
-  height: 100%;
-  max-height: 250px;
 }
 
 .profile-picture img {
