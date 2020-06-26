@@ -13,6 +13,7 @@ export default {
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
    */
+  srcDir: "src/",
   head: {
     titleTemplate: titleChunk => {
       return titleChunk ? `${titleChunk} - Dashboard` : "Dashboard";

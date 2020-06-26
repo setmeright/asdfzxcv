@@ -1,5 +1,7 @@
 # user-profile
 
+initial user credentials: `admin password`
+
 ## Build Setup
 
 ```bash
@@ -11,10 +13,7 @@ $ npm run dev
 
 # build for production and launch server
 $ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+$ npm run export
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
