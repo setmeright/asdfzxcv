@@ -1,4 +1,13 @@
-<template functional>
+<script>
+import { mapState } from "vuex";
+
+export default {
+  name: "UserProfile",
+  computed: mapState("user", ["profile"]),
+};
+</script>
+
+<template>
   <div>
     <div class="d-flex">
       <h2 class="mb-5 mr-5">User information</h2>
@@ -7,13 +16,13 @@
       >
     </div>
     <figure class="profile-picture mb-5">
-      <img :src="props.profile.img" alt="user picture" />
+      <img :src="profile.img" alt="user picture" />
     </figure>
     <p class="ma-0">
-      Name: <strong>{{ props.profile.name }}</strong>
+      Name: <strong>{{ profile.name }}</strong>
     </p>
     <p class="ma-0">
-      Email: <strong>{{ props.profile.email }}</strong>
+      Email: <strong>{{ profile.email }}</strong>
     </p>
   </div>
 </template>

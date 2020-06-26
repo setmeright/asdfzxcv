@@ -1,6 +1,10 @@
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
   name: "DefaultLayout",
+  computed: mapState("user", ["account"]),
+  methods: mapActions("user", ["logout"]),
 };
 </script>
 
@@ -12,9 +16,9 @@ export default {
       <v-spacer></v-spacer>
 
       <v-toolbar-title class="mr-5 text-caption"
-        >Logged in as <strong>Admin</strong></v-toolbar-title
+        >Logged in as <strong>{{ account }}</strong></v-toolbar-title
       >
-      <v-btn depressed color="white">
+      <v-btn depressed color="white" @click="logout">
         <v-icon>mdi-logout</v-icon>
         Logout
       </v-btn>

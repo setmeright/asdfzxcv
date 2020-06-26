@@ -1,17 +1,14 @@
 <script>
 export default {
   name: "UserProfileEdit",
-  props: { profile: { type: Object, required: true } },
   data() {
-    return {
-      name: this.profile.name,
-      email: this.profile.email,
-    };
+    const { name, email, img } = this.$store.state.user.profile;
+
+    return { name, email, img };
   },
   methods: {
     submit() {
-      this.profile.name = this.name;
-      this.profile.email = this.email;
+      this.$store.commit("user/updateProfile", this.$data);
 
       this.$router.push({ query: {} });
     },
@@ -26,7 +23,7 @@ export default {
       <v-btn type="input" depressed color="success">Save</v-btn>
     </div>
     <figure class="profile-picture mb-5">
-      <img :src="profile.img" alt="user picture" />
+      <img :src="img" alt="user picture" />
     </figure>
     <!-- <v-file-input
       v-model="img"

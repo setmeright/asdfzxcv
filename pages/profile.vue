@@ -17,19 +17,6 @@ export default {
   watchQuery(newQuery) {
     this.isEditing = !!newQuery.edit;
   },
-  computed: {
-    profile: {
-      get() {
-        return {
-          name: "John Doe",
-          email: "johnny@doe.com",
-          img:
-            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=250&h=250&q=80",
-        };
-      },
-      set() {},
-    },
-  },
   methods: {
     saveProfile() {},
   },
@@ -46,7 +33,6 @@ export default {
     <v-col cols="12" class="pa-0">
       <component
         :is="isEditing ? 'UserProfileEdit' : 'UserProfile'"
-        :profile="profile"
       ></component>
     </v-col>
   </v-row>

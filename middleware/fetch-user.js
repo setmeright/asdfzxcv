@@ -1,3 +1,5 @@
 export default async function ({ store }) {
-  await store.dispatch("user/fetchUser");
+  if (!store.getters["user/isLoggedIn"]) {
+    await store.dispatch("user/fetchUser");
+  }
 }

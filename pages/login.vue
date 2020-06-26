@@ -1,11 +1,13 @@
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "LoginPage",
   middleware: "no-auth",
   data() {
     return {
       formValid: false,
-      login: "",
+      account: "",
       password: "",
     };
   },
@@ -14,11 +16,7 @@ export default {
       return [v => !!v || "Field is required"];
     },
   },
-  methods: {
-    submit() {
-      console.log("submit login");
-    },
-  },
+  methods: mapActions("user", ["login"]),
   head: {
     title: "Login",
   },
@@ -27,10 +25,10 @@ export default {
 
 <template>
   <v-row justify="center" align="center">
-    <v-form v-model="formValid" @submit.prevent="submit">
+    <v-form v-model="formValid" @submit.prevent="login({ account, password })">
       <v-card class="pa-4" min-width="400">
         <v-text-field
-          v-model="login"
+          v-model="account"
           :rules="generalRules"
           prepend-icon="mdi-account"
           label="Login"

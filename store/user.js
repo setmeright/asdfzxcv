@@ -1,6 +1,7 @@
 function initialState() {
   return {
     id: 0,
+    account: "",
     profile: {
       name: "",
       email: "",
@@ -19,8 +20,9 @@ export const mutations = {
   updateProfile(state, payload) {
     state.profile = { ...state.profile, ...payload };
   },
-  setUser(state, { id, profile }) {
+  setUser(state, { id, account, profile }) {
     state.id = id;
+    state.account = account;
     state.profile = profile;
   },
 };
@@ -38,6 +40,7 @@ export const actions = {
     try {
       const userData = await this.$api.login(payload);
       commit("setUser", userData);
+      this.$router.push("/profile");
     } catch (error) {
       console.error(error);
     }
@@ -46,6 +49,7 @@ export const actions = {
     try {
       await this.$api.logout();
       commit("setUser", initialState());
+      this.$router.push("/login");
     } catch (error) {
       console.error(error);
     }
