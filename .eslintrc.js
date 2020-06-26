@@ -17,7 +17,7 @@ module.exports = {
   plugins: ["prettier"],
   // add your custom rules here
   rules: {
-    "no-console": ["error", { allow: ["warn", "error"] }],
+    "no-console": ["warn", { allow: ["warn", "error"] }],
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
   },
 };

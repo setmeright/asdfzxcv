@@ -13,6 +13,9 @@ export default {
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
    */
+  router: {
+    middleware: "fetch-user",
+  },
   head: {
     titleTemplate: "%s - Dashboard",
     meta: [
