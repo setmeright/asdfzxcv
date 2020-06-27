@@ -26,3 +26,14 @@ export default {
     </p>
   </div>
 </template>
+
+<style>
+.profile-picture {
+  width: 100%;
+  max-width: 250px;
+}
+
+.profile-picture img {
+  width: 100%;
+}
+</style>

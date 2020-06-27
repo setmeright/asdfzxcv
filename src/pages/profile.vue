@@ -3,7 +3,7 @@ import UserProfile from "@/components/UserProfile";
 import UserProfileEdit from "@/components/UserProfileEdit";
 
 export default {
-  name: "IndexPage",
+  name: "ProfilePage",
   components: {
     UserProfile,
     UserProfileEdit,
@@ -16,9 +16,6 @@ export default {
   },
   watchQuery(newQuery) {
     this.isEditing = !!newQuery.edit;
-  },
-  methods: {
-    saveProfile() {},
   },
   head() {
     return {
@@ -37,14 +34,3 @@ export default {
     </v-col>
   </v-row>
 </template>
-
-<style>
-.profile-picture {
-  width: 100%;
-  max-width: 250px;
-}
-
-.profile-picture img {
-  width: 100%;
-}
-</style>
