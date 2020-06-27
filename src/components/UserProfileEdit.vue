@@ -59,13 +59,6 @@ export default {
 
       <img :src="img" alt="user picture" />
     </div>
-
-    <!-- <v-file-input
-      v-model="img"
-      placeholder="Pick an avatar"
-      prepend-icon="mdi-camera"
-      label="Avatar"
-    ></v-file-input> -->
     <v-text-field
       v-model="name"
       :rules="[rules.required]"
